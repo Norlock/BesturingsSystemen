@@ -37,6 +37,8 @@
 		<Unit filename="Application.h" />
 		<Unit filename="Area.cc" />
 		<Unit filename="Area.h" />
+		<Unit filename="BestFit.cpp" />
+		<Unit filename="BestFit.h" />
 		<Unit filename="FirstFit.cc" />
 		<Unit filename="FirstFit.h" />
 		<Unit filename="FirstFit2.cc" />

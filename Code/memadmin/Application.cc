@@ -17,8 +17,6 @@ using std::cerr;
 using std::endl;
 using std::flush;
 
-// ===================================================================
-
 /// Een, globale, hulp functie die de kans berekent
 /// dat de applicatie geheugenruimte wil aanvragen.
 inline // deze 'inline' is alleen maar wat extra optimalisatie
