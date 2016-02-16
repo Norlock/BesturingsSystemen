@@ -1,0 +1,103 @@
+/** @file opdracht.dox
+ * This file contains the doxygen code for this assignment
+ */
+/** \mainpage
+
+<p>Gegeven zijn drie \b img files, waar een (deel van een)
+	<a target='info'
+		href='http://en.wikipedia.org/wiki/Design_of_the_FAT_file_system'>FAT
+		filesysteem</a> in zit.
+	Schrijf een programma dat de low-level systeemdata
+	van zo'n filesysteem kan uitlezen en afdrukken.
+	De inhoud van de rootdirectory hoort bij deze opdracht
+	(sla s.v.p. de ongebruikte entries over).
+	De inhoud van andere bestanden wordt niet gevraagd.
+	Idem wordt de inhoud van subdirectories niet gevraagd.</p>
+
+<p>De exacte layout van de uitvoer doet niet terzake
+	zolang het maar overzichtelijk is.
+	De file \c fat12.txt geeft een voorbeeld van de mogelijke uitvoer.</p>
+
+<p>Behalve de \c fat12.img file (FAT12 layout)
+	zijn er ook nog \c fat16.img (FAT16 layout)
+	en een \c fatXX.img bestand.
+	Van \c fatXX.img is alleen bekend dat het \b of FAT12 \b of FAT16 is,
+	maar verder weten we niets.
+	Jouw programma moet zelf in staat zijn om,
+	op basis van de \b inhoud van een image,
+	te beslissen of het FAT12 danwel FAT16 is.
+
+	PAS OP:
+	In de bootsector zitten vaak diverse "hints",
+	maar die zijn niet echt betrouwbaar.
+	De gangbare vuistregel: klein=FAT12, groter=FAT16,
+	is niet per-definitie waar, het zegt alleen maar
+	wat veel besturingssystemen doen.
+
+	@note \htmlonly HINT: Kijk eens goed naar 
+		<a target='info'
+		href='http://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#File_Allocation_Table'>FAT Table</a>
+		en met name de alinea's onder de zin
+		"<em>The first two entries in a FAT store special values</em>:"
+		direct na het kopje "<a target='info'
+		href='http://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Special_entries'>Special
+		entries</a>".\endhtmlonly
+
+	Mocht iemand een afwijkende img file proberen uit te lezen
+	dan moet jouw programma detecteren dat het geen FAT12/FAT16
+	is, en vervolgens netjes eindigen.</p>
+
+<p>Gegeven zijn:</p>
+<dl>
+<dt>fat12.img
+	<dd>Een oude 720K floppy in FAT12 formaat.
+<dt>fat12.txt
+	<dd>Een voorbeeld van de uitvoer.
+	Jouw layout mag best anders zijn,
+	mits overzichtelijk.
+<dt>fat16.img
+	<dd>Het eerste stukje van een USB-stick in FAT16 formaat;
+	Alle sectoren achter de root-directory zijn weggelaten
+	(en zijn voor de opdracht ook niet relevant).
+<dt>fatXX.img
+	<dd>Wederom het begin van een filesysteem
+	maar dit keer is niet bij voorbaat bekend
+	of het FAT12 danwel FAT16 is.
+	Het is zeker geen ander filesysteem.
+	De parameters van dit image zijn alles
+	behalve "gewoon" maar wel conform de standaard.
+</dl>
+
+<p>Gevraagde informatie:</p>
+<ul>
+<li>De parameters uit de bootsector.
+	\note
+		Denk aan "sanity-checks" die controleren
+		of die parameters geen onzin zijn.
+		<br>Bijvoorbeeld:
+		bytes-per-sector is \b of 128 \b of 256 \b of 512 \b of 1024.
+		<br>Idem: Sectors-per-cluster is altijd een 2-macht
+		en clusters kunnen niet groter zijn dan 32K.
+<li>Informatie over de FAT tabellen.
+<li>De informatie over de entries in de ROOT directory
+	van het filesysteem.
+	Gedelete entries in de root directory moet je weglaten.
+<li>Welke clusters bij de entries in de rootdirectory horen.
+<li>Denk aan de correcte afhandeling van LFN entries ("Long File Name").
+<li>De namen van LFN (<a target='info'
+	href='http://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#VFAT_long_file_names'>Long File Name</a>)
+	entries worden normaliter gecodeerd met UTF16 codes;
+	Bij deze opdracht mag je ze behandelen
+	als een gewoon 8-bit karakter gevolgd door 1 dummy byte.
+<li>De inhoud van sub-directories hoef je NIET af te handelen.
+</ul>
+
+\note
+	Een echt device kan je alleen in hele sectoren lezen
+	die ook op sector grenzen liggen. Dat moet bij deze
+	opdracht dus ook gebeuren.
+
+<p>&nbsp;</p>
+
+ */
+// vim:sw=4:ts=4:ai:aw:

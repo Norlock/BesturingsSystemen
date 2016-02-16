@@ -1,0 +1,8 @@
+assert_error.o: assert_error.cc assert_error.h
+dosboot.o: dosboot.cc type.h dosboot.h
+fatal.o: fatal.cc
+lfnent.o: lfnent.cc lfnent.h type.h
+main.o: main.cc main.h ansi.h common.h asserts.h where.h assert_error.h \
+ options.h fatal.h unix_error.h type.h dosboot.h dirent.h lfnent.h
+options.o: options.cc
+unix_error.o: unix_error.cc unix_error.h where.h

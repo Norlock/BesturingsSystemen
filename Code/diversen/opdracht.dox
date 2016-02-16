@@ -1,0 +1,19 @@
+/** @file opdracht.dox
+ * This file contains the doxygen code for this assignment
+ */
+/** \mainpage
+
+<p>Dit is een verzameling veel gebruikte .h en .cc files.
+	<br>Als je onder unix/linux/MacOs de praktikum.tgz file hebt uitgepakt
+		dan zijn alle exemplaren van deze files
+		in alle mappen eigenlijk DEZELFDE file.
+		Als je dan "ergens" zo'n file verandert dan geldt dat meteen
+		voor ALLE praktikum mappen
+		(b.v. common.h aanpassen omdat je toch eclipse wilde gebruiken).
+	<br>Onder windows (of als je de zip file had uitgepakt)
+		worden het aparte kopieen die je, ieder apart,
+		moet aanpassen!
+
+<p>&nbsp;</p>
+
+ */

@@ -1,0 +1,26 @@
+var structdosboot =
+[
+    [ "decodeMediaCode", "structdosboot.html#a6b23f5d63a2c96f27ff87e30dddd415c", null ],
+    [ "b_bps", "structdosboot.html#a573959658a45b4ee30aa26777f0da091", null ],
+    [ "b_bra", "structdosboot.html#a9cf3fa330518fe47fda9147f21c5dbe1", null ],
+    [ "b_bsig", "structdosboot.html#a8ec8b1bba9f3f2083183102a2876f9f6", null ],
+    [ "b_code", "structdosboot.html#adecf5221656fdd360b7c442b55e06139", null ],
+    [ "b_ebsig", "structdosboot.html#ae01d6432dc2374c6721a6ccd3b293edb", null ],
+    [ "b_heads", "structdosboot.html#ab980be3acfdb53aa75d4ad7fc41ae57e", null ],
+    [ "b_label", "structdosboot.html#a2f086787e8f550233a8640d40463da6d", null ],
+    [ "b_media", "structdosboot.html#a801da64e9becdc5ebd9612639d9e8d52", null ],
+    [ "b_ndir", "structdosboot.html#a63a1e40c9e55dc97e516d050240dd767", null ],
+    [ "b_nfat", "structdosboot.html#ab16edad3022f0db8b38f41ce42bcef00", null ],
+    [ "b_nhidden", "structdosboot.html#a51ca074a072b93b0562cbe2663dc4064", null ],
+    [ "b_nlsec", "structdosboot.html#a838b85b85ebc7dc8564e1fb27c5a0dee", null ],
+    [ "b_nres", "structdosboot.html#a10530a8b6949357098ba0ee124af9729", null ],
+    [ "b_nssec", "structdosboot.html#ad8f2d77ba16e917a287087291ead42c5", null ],
+    [ "b_oem", "structdosboot.html#abbcba5e0f7c301aed6b521f6fd76201d", null ],
+    [ "b_phys", "structdosboot.html#a007aa6019a0e2733c1fa9c0b299d4358", null ],
+    [ "b_res2", "structdosboot.html#aa86acb7e1263502be39fec74a53335ea", null ],
+    [ "b_serno", "structdosboot.html#a5d62715f1fa7c661ed0bc20a7f05f26d", null ],
+    [ "b_spc", "structdosboot.html#a79b25eda6236866c681cb9f399aef06a", null ],
+    [ "b_spf", "structdosboot.html#a5fe23f2e764f7664a449b0d617c0a776", null ],
+    [ "b_spt", "structdosboot.html#ace70c7d863c9e497de52b604e012bdc8", null ],
+    [ "b_type", "structdosboot.html#a4de11bbf718478ddda9b6e8a062eb45d", null ]
+];

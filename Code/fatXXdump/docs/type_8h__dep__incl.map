@@ -1,0 +1,8 @@
+<map id="type.h" name="type.h">
+<area shape="rect" id="node2" href="$dirent_8h.html" title="De beschrijving van een gewone DOS directory entry. " alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node3" href="$main_8cc.html" title="A program to dump a FAT12/FAT16 image. " alt="" coords="74,155,141,181"/>
+<area shape="rect" id="node4" href="$dosboot_8cc.html" title="DOS bootsector utility functions. " alt="" coords="286,155,372,181"/>
+<area shape="rect" id="node5" href="$dosboot_8h.html" title="De DOS bootsector beschrijving. " alt="" coords="235,80,313,107"/>
+<area shape="rect" id="node6" href="$lfnent_8h.html" title="De beschrijving van een Long File Name fake directory entry. " alt="" coords="146,80,211,107"/>
+<area shape="rect" id="node7" href="$lfnent_8cc.html" title="The implementation of struct lfnent. " alt="" coords="167,155,239,181"/>
+</map>

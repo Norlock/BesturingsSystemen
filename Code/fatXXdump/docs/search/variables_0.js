@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['b_5fbps',['b_bps',['../structdosboot.html#a573959658a45b4ee30aa26777f0da091',1,'dosboot::b_bps()'],['../dosboot_8h.html#a6a421973bc5bb396bae17e19076acb4f',1,'b_bps():&#160;dosboot.h']]],
+  ['b_5fbra',['b_bra',['../structdosboot.html#a9cf3fa330518fe47fda9147f21c5dbe1',1,'dosboot::b_bra()'],['../dosboot_8h.html#a4483078b71405b97448df09c142b87e3',1,'b_bra():&#160;dosboot.h']]],
+  ['b_5fbsig',['b_bsig',['../structdosboot.html#a8ec8b1bba9f3f2083183102a2876f9f6',1,'dosboot::b_bsig()'],['../dosboot_8h.html#a9ac53f78a64e40cb52514ea00b815337',1,'b_bsig():&#160;dosboot.h']]],
+  ['b_5fcode',['b_code',['../structdosboot.html#adecf5221656fdd360b7c442b55e06139',1,'dosboot::b_code()'],['../dosboot_8h.html#a09fdfc98a5c3b4f5c8b3c5cac91f8499',1,'b_code():&#160;dosboot.h']]],
+  ['b_5febsig',['b_ebsig',['../structdosboot.html#ae01d6432dc2374c6721a6ccd3b293edb',1,'dosboot::b_ebsig()'],['../dosboot_8h.html#a880051bab61f6530f804c4b58fc71490',1,'b_ebsig():&#160;dosboot.h']]],
+  ['b_5fheads',['b_heads',['../structdosboot.html#ab980be3acfdb53aa75d4ad7fc41ae57e',1,'dosboot::b_heads()'],['../dosboot_8h.html#a101d70de82a4b2e86c45660127e30526',1,'b_heads():&#160;dosboot.h']]],
+  ['b_5flabel',['b_label',['../structdosboot.html#a2f086787e8f550233a8640d40463da6d',1,'dosboot::b_label()'],['../dosboot_8h.html#a93785e98af40a0d89010908a180fc054',1,'b_label():&#160;dosboot.h']]],
+  ['b_5fmedia',['b_media',['../structdosboot.html#a801da64e9becdc5ebd9612639d9e8d52',1,'dosboot::b_media()'],['../dosboot_8h.html#a689451e85e2a7dae63e8de8427d8d6ab',1,'b_media():&#160;dosboot.h']]],
+  ['b_5fndir',['b_ndir',['../structdosboot.html#a63a1e40c9e55dc97e516d050240dd767',1,'dosboot::b_ndir()'],['../dosboot_8h.html#a12c4cb3cd680e485084595b45d46b15e',1,'b_ndir():&#160;dosboot.h']]],
+  ['b_5fnfat',['b_nfat',['../structdosboot.html#ab16edad3022f0db8b38f41ce42bcef00',1,'dosboot::b_nfat()'],['../dosboot_8h.html#a559556205a65b7e1d251f4b9636c0319',1,'b_nfat():&#160;dosboot.h']]],
+  ['b_5fnhidden',['b_nhidden',['../structdosboot.html#a51ca074a072b93b0562cbe2663dc4064',1,'dosboot::b_nhidden()'],['../dosboot_8h.html#a4813bdc05eb48e4882f528d3962a3e2f',1,'b_nhidden():&#160;dosboot.h']]],
+  ['b_5fnlsec',['b_nlsec',['../structdosboot.html#a838b85b85ebc7dc8564e1fb27c5a0dee',1,'dosboot::b_nlsec()'],['../dosboot_8h.html#abacd3b02e2aad89eddfa3c09978ca74b',1,'b_nlsec():&#160;dosboot.h']]],
+  ['b_5fnres',['b_nres',['../structdosboot.html#a10530a8b6949357098ba0ee124af9729',1,'dosboot::b_nres()'],['../dosboot_8h.html#ab5dc98a51fec0a543d7faf5fc8652b7f',1,'b_nres():&#160;dosboot.h']]],
+  ['b_5fnssec',['b_nssec',['../structdosboot.html#ad8f2d77ba16e917a287087291ead42c5',1,'dosboot::b_nssec()'],['../dosboot_8h.html#a81be7692f7d9f8ce51b41cd8413c2f97',1,'b_nssec():&#160;dosboot.h']]],
+  ['b_5foem',['b_oem',['../structdosboot.html#abbcba5e0f7c301aed6b521f6fd76201d',1,'dosboot::b_oem()'],['../dosboot_8h.html#afafc11add20cab6d25a5ac4ba3a9d185',1,'b_oem():&#160;dosboot.h']]],
+  ['b_5fphys',['b_phys',['../structdosboot.html#a007aa6019a0e2733c1fa9c0b299d4358',1,'dosboot::b_phys()'],['../dosboot_8h.html#a398f730040f69788966aad860d6c97b0',1,'b_phys():&#160;dosboot.h']]],
+  ['b_5fres2',['b_res2',['../structdosboot.html#aa86acb7e1263502be39fec74a53335ea',1,'dosboot::b_res2()'],['../dosboot_8h.html#ae6dcf31e56f5c51cd37d9ea13343ca96',1,'b_res2():&#160;dosboot.h']]],
+  ['b_5fserno',['b_serno',['../structdosboot.html#a5d62715f1fa7c661ed0bc20a7f05f26d',1,'dosboot::b_serno()'],['../dosboot_8h.html#a13258ae128756c1efe71cbcb5f66ac2d',1,'b_serno():&#160;dosboot.h']]],
+  ['b_5fspc',['b_spc',['../structdosboot.html#a79b25eda6236866c681cb9f399aef06a',1,'dosboot::b_spc()'],['../dosboot_8h.html#a97c7f87caefbf3a9bef59f85ce919907',1,'b_spc():&#160;dosboot.h']]],
+  ['b_5fspf',['b_spf',['../structdosboot.html#a5fe23f2e764f7664a449b0d617c0a776',1,'dosboot::b_spf()'],['../dosboot_8h.html#a232ad5f940b9b269ec7f6f0a812f2077',1,'b_spf():&#160;dosboot.h']]],
+  ['b_5fspt',['b_spt',['../structdosboot.html#ace70c7d863c9e497de52b604e012bdc8',1,'dosboot::b_spt()'],['../dosboot_8h.html#ab99d1139a121cdcb745a7d84e56e7446',1,'b_spt():&#160;dosboot.h']]],
+  ['b_5ftype',['b_type',['../structdosboot.html#a4de11bbf718478ddda9b6e8a062eb45d',1,'dosboot::b_type()'],['../dosboot_8h.html#a21987ae51c07142c134d77b806f1f335',1,'b_type():&#160;dosboot.h']]]
+];
