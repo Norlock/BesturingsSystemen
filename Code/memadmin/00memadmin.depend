@@ -50,7 +50,7 @@
 	<list>
 	"Allocator.h"
 
-1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/main.cc
+1456231177 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/main.cc
 	<vector>
 	<cstdlib>
 	<getopt.h>
@@ -60,6 +60,7 @@
 	"FirstFit2.h"
 	"NextFit.h"
 	"NextFit2.h"
+	"BestFit.h"
 	"Application.h"
 
 1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/RandomFit.h
@@ -121,11 +122,11 @@
 	"asserts.h"
 	"Area.h"
 
-1456227522 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.cpp
+1456230715 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.cpp
 	"BestFit.h"
 	"ansi.h"
 
-1455638922 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.h
+1456228841 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.h
 	"Fitter.h"
 
 1456227579 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/FirstFit.cc

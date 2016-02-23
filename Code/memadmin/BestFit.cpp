@@ -69,16 +69,16 @@ Area  *BestFit::alloc(int wanted)
 
 
 // Application returns an area no longer needed
-void	BestFit::free(Area *ap)
+void	BestFit::free(Area *area)
 {
-	require(ap != 0);
+	require(area != 0);
 	if (cflag) {
 		// EXPENSIVE: check for overlap with all registered free areas
 		for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i) {
-			check(!ap->overlaps(*i));    // the sanity check
+			check(!area->overlaps(*i));    // the sanity check
 		}
 	}
-	areas.push_back(ap);	// add discarded "old" object to the end of free list
+	areas.push_back(area);	// add discarded "old" object to the end of free list
 }
 
 
@@ -91,22 +91,32 @@ Area  *BestFit::searcher(int wanted)
 	require(wanted <= size);	// but not more than can exist,
 	require(!areas.empty());	// provided we do have something to give
 
+    Area *temp = 0;
+
 	// Search thru all available areas
-	for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i) {
+	for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i)
+	{
 		Area  *areaWanted = *i;					// Candidate item
-		if(areaWanted->getSize() >= wanted) {	// Large enough?
-			// Yes, use this area;
-			// The 'erase' operation below invalidates the 'i' iterator
-			// but it does return a valid iterator to the next element.
-			ALiterator  next = areas.erase(i);	// Remove this element from the freelist
-			if(areaWanted->getSize() > wanted) {		// Larger than needed ?
-				Area  *rp = areaWanted->split(wanted);	// Split into two parts (updating sizes)
+		if(areaWanted->getSize() >= wanted)
+		{
+            if(temp == 0 || areaWanted->getSize() < temp->getSize()) {
+                temp = areaWanted;
+            }
+		}
+		if(i + 1 == areas.end())
+		{
+            /// Yes, use this area;
+			/// The 'erase' operation below invalidates the 'i' iterator
+			/// but it does return a valid iterator to the next element.
+            ALiterator  next = areas.erase(i);	// Remove this element from the freelist
+			if(ap->getSize() > wanted) {		// Larger than needed ?
+				Area  *rp = ap->split(wanted);	// Split into two parts (updating sizes)
 				areas.insert(next, rp);			// Insert remainder before "next" area
 			}
-			return  areaWanted;
+            return temp;
 		}
 	}
-	return  0; // report failure
+			 // geef de temp terug want die is het kleinst
 }
 
 
@@ -122,19 +132,23 @@ bool	BestFit::reclaim()
 	// Search thru all free areas for matches between successive elements
 	bool  changed = false;
 	ALiterator  i = areas.begin();
-	Area  *ap = *i;					// The current candidate ...
-	for(++i ; i != areas.end() ;) {
-		Area  *bp = *i;				// ... match it with.
-		if(bp->getBase() == (ap->getBase() + ap->getSize())) {
+	Area  *area = *i;					// The current candidate ...
+	for(++i ; i != areas.end() ;)
+	{
+		Area  *otherArea = *i;				// ... match it with.
+		if(otherArea->getBase() == (area->getBase() + area->getSize()))
+		{
 			// Oke; bp matches ap ... [i.e. bp follows ap]
 			ALiterator  next = areas.erase(i);	// remove bp from the list
-			ap->join(bp);			// append area bp to ap (and destroy bp)
+			area->join(otherArea);			// append area bp to ap (and destroy bp)
 			++mergers;				// update statistics
 			changed = true;			// we changed something
 			i = next;				// revive the 'i' iterator
 			// and now try match ap with whatever followed bp
-		} else {
-			ap = bp;				// move on to next free area
+		}
+		else
+		{
+			area = otherArea;				// move on to next free area
 			++i;
 		}
 	}
@@ -147,7 +161,7 @@ void	BestFit::updateStats()
 {
 	++numberOfAllocsTried;									// number of 'alloc's
 	qsum  += areas.size();					// length of resource map
-	qsum2 += (areas.size() * areas.size());	// same: squared
+	qsum2 += (areas.size() * areas.size());	// same: squared wordt gebruikt voor standaard deviaties
 }
 
 // vim:sw=4:ai:aw:ts=4:

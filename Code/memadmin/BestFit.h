@@ -34,7 +34,7 @@ public:
 
 	/// The application returns an area to freespace.
 	/// @param ap	The area returned to free space
-	virtual  void	free(Area *ap);
+	virtual  void	free(Area *area);
 
 protected:
 
