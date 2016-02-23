@@ -103,7 +103,7 @@ Area  *BestFit::searcher(int wanted)
 				Area  *rp = areaWanted->split(wanted);	// Split into two parts (updating sizes)
 				areas.insert(next, rp);			// Insert remainder before "next" area
 			}
-			return  ap;
+			return  areaWanted;
 		}
 	}
 	return  0; // report failure

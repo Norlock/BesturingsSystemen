@@ -90,7 +90,7 @@ public:
 		inline	/// "Call" operator to compare two areas by size ascending
 		bool operator()(const Area *firstArea, const Area *secondArea) {
 			require((firstArea != 0) && (secondArea != 0));
-			return ap->size < bp->size;
+			return firstArea->size < secondArea->size;
 		}
 	};
 
@@ -102,7 +102,7 @@ public:
 		inline	/// "Call" operator to compare two areas by size descending
 		bool operator()(const Area *firstArea, const Area *secondArea) {
 			require((firstArea != 0) && (secondArea != 0));
-			return ap->size >= bp->size;
+			return firstArea->size >= secondArea->size;
 		}
 	};
 

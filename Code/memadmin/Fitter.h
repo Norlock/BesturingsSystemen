@@ -52,7 +52,7 @@ protected:
 	long		mergers;	///< how often we could merge fragmented space
 
 	// Counters to calculate the average size of the resource map
-	long long	qcnt;	///< number of allocs tried
+	long long	numberOfAllocsTried;	///< number of allocs tried
 	long long	qsum;	///< sum of areas.size()
 	long long	qsum2;	///< sum of areas.size() squared
 

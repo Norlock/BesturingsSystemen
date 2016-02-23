@@ -12,7 +12,7 @@
 Fitter::Fitter(bool cflag, const char *type)
 	: Allocator(cflag, type)
 	, reclaims(0), mergers(0)
-	, qcnt(0), qsum(0), qsum2(0)
+	, numberOfAllocsTried(0), qsum(0), qsum2(0)
 {
 }
 
@@ -23,7 +23,7 @@ void  Fitter::setSize(int new_size)
 	require(new_size > 0);					// must be a meaningfull value
 	Allocator::setSize(new_size);			// inform the Allocator baseclass about the new size
 	reclaims = mergers = 0;					// clear the statistics
-	qcnt = qsum = qsum2 = 0;				// and these too
+	numberOfAllocsTried = qsum = qsum2 = 0;				// and these too
 }
 
 
@@ -32,15 +32,15 @@ void	Fitter::report()
 {
 	std::cout << type << ": " << reclaims << " reclaims, " << mergers << " mergers\n";
 
-	require(qcnt > 0);			// prevent divide-thru-zero
-	double	avg = qsum / qcnt;	// calculate the average resource map length
+	require(numberOfAllocsTried > 0);			// prevent divide-thru-zero
+	double	avg = qsum / numberOfAllocsTried;	// calculate the average resource map length
 
-	require(qcnt > 1);			// prevent divide-thru-zero
+	require(numberOfAllocsTried > 1);			// prevent divide-thru-zero
 	double	stdev				// calculate the standard deviation
 		= sqrt(
-			  (qsum2 / (qcnt - 1))
+			  (qsum2 / (numberOfAllocsTried - 1))
 			  -
-			  (qcnt / (qcnt - 1)) * (((qsum / qcnt) * (qsum / qcnt)))
+			  (numberOfAllocsTried / (numberOfAllocsTried - 1)) * (((qsum / numberOfAllocsTried) * (qsum / numberOfAllocsTried)))
 		  );
 	// also see: http://en.wikipedia.org/wiki/Standard_deviation
 	std::cout << type << ": average " << avg << " areas, stdev " << stdev << " areas\n";

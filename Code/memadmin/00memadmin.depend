@@ -1,0 +1,144 @@
+# depslib dependency file v1.0
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Allocator.cc
+	"main.h"
+	"Allocator.h"
+
+1455636665 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/main.h
+	<iostream>
+	"common.h"
+	"ansi.h"
+	"asserts.h"
+	"Area.h"
+	"Allocator.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/common.h
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/ansi.h
+	"common.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/asserts.h
+	"where.h"
+	"assert_error.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/where.h
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/assert_error.h
+	<stdexcept>
+
+1456227376 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Area.h
+	<iostream>
+	"asserts.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Allocator.h
+	"Area.h"
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/assert_error.cc
+	<string>
+	<sstream>
+	"assert_error.h"
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/FirstFit2.cc
+	"FirstFit2.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/FirstFit2.h
+	"FirstFit.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/FirstFit.h
+	"Fitter.h"
+
+1456227507 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Fitter.h
+	<list>
+	"Allocator.h"
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/main.cc
+	<vector>
+	<cstdlib>
+	<getopt.h>
+	"main.h"
+	"RandomFit.h"
+	"FirstFit.h"
+	"FirstFit2.h"
+	"NextFit.h"
+	"NextFit2.h"
+	"Application.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/RandomFit.h
+	"Allocator.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/NextFit.h
+	"Fitter.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/NextFit2.h
+	"NextFit.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Application.h
+	<list>
+	"Allocator.h"
+	"Area.h"
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/NextFit2.cc
+	"NextFit2.h"
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/RandomFit.cc
+	"main.h"
+	"RandomFit.h"
+	<cstdlib>
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Stopwatch.cc
+	<iostream>
+	<cstdio>
+	"asserts.h"
+	"Stopwatch.h"
+	<unistd.h>
+	<time.h>
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Stopwatch.h
+	<sys/resource.h>
+	<sys/times.h>
+	<times.h>
+	<time.h>
+	<sys/time.h>
+	<windows.h>
+
+1455635699 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/unix_error.cc
+	<cstring>
+	<cerrno>
+	<sstream>
+	"unix_error.h"
+
+1455635699 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/unix_error.h
+	<stdexcept>
+	<string>
+	"where.h"
+
+1455640923 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Application.cc
+	<cstdlib>
+	"main.h"
+	"Stopwatch.h"
+	"Application.h"
+
+1456150734 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Area.cc
+	"asserts.h"
+	"Area.h"
+
+1456227522 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.cpp
+	"BestFit.h"
+	"ansi.h"
+
+1455638922 /home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/BestFit.h
+	"Fitter.h"
+
+1456227579 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/FirstFit.cc
+	"FirstFit.h"
+	"ansi.h"
+
+1456227507 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/Fitter.cc
+	<cmath>
+	"ansi.h"
+	"Fitter.h"
+
+1456227591 source:/home/norlock/Documents/Projects/BesturingsSystemen/Code/memadmin/NextFit.cc
+	"main.h"
+	"NextFit.h"
+	"ansi.h"
+

@@ -143,7 +143,7 @@ bool	FirstFit::reclaim()
 // Update statistics
 void	FirstFit::updateStats()
 {
-	++qcnt;									// number of 'alloc's
+	++numberOfAllocsTried;									// number of 'alloc's
 	qsum  += areas.size();					// length of resource map
 	qsum2 += (areas.size() * areas.size());	// same: squared
 }
