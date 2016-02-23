@@ -36,30 +36,32 @@ void	BestFit::dump()
 }
 
 
-// Application wants 'wanted' memory
+// Geeft een gebied terug met een bepaalde grote
 Area  *BestFit::alloc(int wanted)
 {
-	require(wanted > 0);		// has to be "something",
-	require(wanted <= size);	// but not more than can exist
+	require(wanted > 0);		// mag geen null zijn
+	require(wanted <= size);	// kan niet groter zijn dan de maximale geheugen beschikbaar
 
 	updateStats();				// update resource map statistics
 
-	if(areas.empty()) {		// iff we have nothing
-		return 0;    			// give up immediately
+	if(areas.empty()) {		// geef null terug als gebied leeg is
+		return 0;
 	}
 
 	// Search thru all available free areas
-	Area  *ap = 0;
-	ap = searcher(wanted);		// first attempt
-	if(ap) {					// success ?
-		return ap;
+	Area  *areaWanted = 0;
+	areaWanted = searcher(wanted);		// first attempt
+	if(areaWanted) {					// success ?
+		return areaWanted;
 	}
+
 	if(reclaim()) {			// could we reclaim fragmented freespace ?
-		ap = searcher(wanted);	// then make a second attempt
-		if(ap) {				// success ?
-			return ap;
+		areaWanted = searcher(wanted);	// then make a second attempt
+		if(areaWanted) {				// success ?
+			return areaWanted;
 		}
 	}
+
 	// Alas, failed to allocate anything
 	//dump();//DEBUG
 	return 0;					// inform caller we failed
@@ -82,7 +84,7 @@ void	BestFit::free(Area *ap)
 
 // ----- internal utilities -----
 
-// Search for an area with at least 'wanted' memory
+// Zoekt voor een gebied met die groter is dan wanted
 Area  *BestFit::searcher(int wanted)
 {
 	require(wanted > 0);		// has to be "something",
@@ -91,14 +93,14 @@ Area  *BestFit::searcher(int wanted)
 
 	// Search thru all available areas
 	for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i) {
-		Area  *ap = *i;					// Candidate item
-		if(ap->getSize() >= wanted) {	// Large enough?
+		Area  *areaWanted = *i;					// Candidate item
+		if(areaWanted->getSize() >= wanted) {	// Large enough?
 			// Yes, use this area;
 			// The 'erase' operation below invalidates the 'i' iterator
 			// but it does return a valid iterator to the next element.
 			ALiterator  next = areas.erase(i);	// Remove this element from the freelist
-			if(ap->getSize() > wanted) {		// Larger than needed ?
-				Area  *rp = ap->split(wanted);	// Split into two parts (updating sizes)
+			if(areaWanted->getSize() > wanted) {		// Larger than needed ?
+				Area  *rp = areaWanted->split(wanted);	// Split into two parts (updating sizes)
 				areas.insert(next, rp);			// Insert remainder before "next" area
 			}
 			return  ap;
@@ -143,7 +145,7 @@ bool	BestFit::reclaim()
 // Update statistics
 void	BestFit::updateStats()
 {
-	++qcnt;									// number of 'alloc's
+	++numberOfAllocsTried;									// number of 'alloc's
 	qsum  += areas.size();					// length of resource map
 	qsum2 += (areas.size() * areas.size());	// same: squared
 }

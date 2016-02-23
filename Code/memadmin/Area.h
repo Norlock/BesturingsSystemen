@@ -44,7 +44,7 @@ public:
 
 	/// Overlappen deze twee area's elkaar?
 	/// @param	xp	Area waarmee vergeleken wordt
-	bool	overlaps(const Area *xp) const;
+	bool	overlaps(const Area *otherArea) const;
 
 	/// Maak het gebied kleiner en maak van de rest een nieuwe area.
 	/// @param	size	Reduceer dit gebied tot deze omvang
@@ -55,7 +55,7 @@ public:
 	/// en ruim daarna de gegeven descriptor op.
 	/// @param	xp	De area die we samenvoegen met deze area
 	/// @note	Het object waar xp naar verwijst wordt gedelete!
-	void   join(Area *xp);
+	void   join(Area *otherArea);
 
 
 	// ====== !! Nu komt wat C++ magie !! ======
@@ -76,9 +76,9 @@ public:
 	{
 	public:
 		inline 	/// "Call" operator to compare two areas by address
-		bool operator()(const Area *ap, const Area *bp) {
-			require((ap != 0) && (bp != 0));
-			return ap->base < bp->base;
+		bool operator()(const Area *firstArea, const Area *secondArea) {
+			require((firstArea != 0) && (secondArea != 0));
+			return firstArea->base < secondArea->base;
 		}
 	};
 
@@ -88,8 +88,8 @@ public:
 	{
 	public:
 		inline	/// "Call" operator to compare two areas by size ascending
-		bool operator()(const Area *ap, const Area *bp) {
-			require((ap != 0) && (bp != 0));
+		bool operator()(const Area *firstArea, const Area *secondArea) {
+			require((firstArea != 0) && (secondArea != 0));
 			return ap->size < bp->size;
 		}
 	};
@@ -100,8 +100,8 @@ public:
 	{
 	public:
 		inline	/// "Call" operator to compare two areas by size descending
-		bool operator()(const Area *ap, const Area *bp) {
-			require((ap != 0) && (bp != 0));
+		bool operator()(const Area *firstArea, const Area *secondArea) {
+			require((firstArea != 0) && (secondArea != 0));
 			return ap->size >= bp->size;
 		}
 	};

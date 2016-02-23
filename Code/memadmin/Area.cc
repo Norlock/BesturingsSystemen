@@ -20,36 +20,36 @@ Area::Area(int base, int size)
 
 
 // Overlappen de twee gebieden elkaar ?
-bool	Area::overlaps(const Area *xp) const
+bool	Area::overlaps(const Area *otherArea) const // waarom xp?
 {
-	require(xp != 0);
-	return  (  ((xp->base <= base) && (base <= xp->ends))		// 'this' begint  IN xp !
-	        || ((xp->base <= ends) && (ends <= xp->ends)) );	// 'this' eindigt IN xp !
+	require(otherArea != 0);
+	return  (  ((otherArea->base <= base) && (base <= otherArea->ends))		// 'this' begint  IN xp !
+	        || ((otherArea->base <= ends) && (ends <= otherArea->ends)) );	// 'this' eindigt IN xp !
 }
 
 
 // Splits dit gebied op in een stuk ter grote van 'gevraagd'
 // en maak een nieuwe Area voor de rest.
-Area	*Area::split(int gevraagd)
+Area	*Area::split(int wanted)
 {
-	require(gevraagd > 0);		// sanity check
-	require(gevraagd < size);	// er moet wel iets overblijven
+	require(wanted > 0);		// sanity check
+	require(wanted < size);	// er moet wel iets overblijven
 
-	Area  *rp = new Area(base + gevraagd, size - gevraagd);
-	size = gevraagd;			// pas je eigen omvang aan
+	Area  *requestedArea = new Area(base + wanted, size - wanted);
+	size = wanted;			// pas je eigen omvang aan
 	ends = base + size - 1;		// must update this too!
-	return  rp;
+	return  requestedArea;
 }
 
 // Plak gebied 'xp' achter dit gebied
 // en gooi daarna de 'xp' descriptor weg
-void	Area::join(Area *xp)
+void	Area::join(Area *otherArea)
 {
-	require(xp != 0);					// sanity check
-	require(xp->base == (base + size)); // xp moet op dit gebied aansluiten
-	size += xp->size;					// dit gebied wordt groter
+	require(otherArea != 0);					// sanity check
+	require(otherArea->base == (base + size)); // xp moet op dit gebied aansluiten
+	size += otherArea->size;					// dit gebied wordt groter
 	ends = base + size - 1;				// must update this too!
-	delete  xp;							// deze descriptor kan nu weg.
+	delete  otherArea;							// deze descriptor kan nu weg.
 }
 
 // vim:sw=4:ai:aw:ts=4:
