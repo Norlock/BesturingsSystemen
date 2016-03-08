@@ -5,7 +5,9 @@
 
 #include "BestFit.h"
 #include "ansi.h"
+#include <iostream>
 
+using namespace std;
 
 // Clean up dead stuff
 BestFit::~BestFit()
@@ -91,32 +93,41 @@ Area  *BestFit::searcher(int wanted)
 	require(wanted <= size);	// but not more than can exist,
 	require(!areas.empty());	// provided we do have something to give
 
-    Area *temp = 0;
-
 	// Search thru all available areas
 	for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i)
 	{
 		Area  *areaWanted = *i;					// Candidate item
-		if(areaWanted->getSize() >= wanted)
+		if(areaWanted->getSize() < wanted)
 		{
-            if(temp == 0 || areaWanted->getSize() < temp->getSize()) {
-                temp = areaWanted;
+            Area *previousArea = 0;
+            ALiterator  next = null;
+            if(it == areas.begin())//eerste element
+            {
+                previousArea = *i;
+                next =  areas.erase(i);
             }
-		}
-		if(i + 1 == areas.end())
-		{
-            /// Yes, use this area;
-			/// The 'erase' operation below invalidates the 'i' iterator
-			/// but it does return a valid iterator to the next element.
-            ALiterator  next = areas.erase(i);	// Remove this element from the freelist
-			if(ap->getSize() > wanted) {		// Larger than needed ?
-				Area  *rp = ap->split(wanted);	// Split into two parts (updating sizes)
-				areas.insert(next, rp);			// Insert remainder before "next" area
-			}
-            return temp;
+            else
+            {
+              ALiterator _copy = i;
+              --_copy;
+               previousArea = *_copy;
+               next =  areas.erase(_copy);
+            }
+
+           // Remove this element from the freelist
+            if(previousArea->getSize() != wanted)
+            {
+                Area  *restArea = previousArea->split(wanted);	// Split into two parts (updating sizes)
+                areas.insert(next, restArea);
+                cout << "Wanted is: " << wanted << endl;
+                cout << "Size of area used is: " << previousArea->getSize()<< endl;
+                cout << "Size of rest area is: " << restArea->getSize()<< endl;
+            }
+            return previousArea;
 		}
 	}
-			 // geef de temp terug want die is het kleinst
+	return 0;
+
 }
 
 
