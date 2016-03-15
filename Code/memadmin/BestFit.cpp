@@ -34,7 +34,8 @@ void	BestFit::dump()
     std::cerr << AC_BLUE << type << "::areas";
     for (ALiterator  i = areas.begin() ; i != areas.end() ; ++i)
     {
-        std::cerr << ' ' << **i;
+         Area  *areaWanted = *i;
+        std::cerr << ' ' << areaWanted->getSize() ;
     }
     std::cerr << AA_RESET << std::endl;
 }
@@ -69,7 +70,6 @@ Area  *BestFit::alloc(int wanted)
             return areaWanted;
         }
     }
-
     // Alas, failed to allocate anything
     //dump();//DEBUG
     return 0;					// inform caller we failed
@@ -101,42 +101,36 @@ Area  *BestFit::searcher(int wanted)
     require(wanted <= size);	// but not more than can exist,
     require(!areas.empty());	// provided we do have something to give
 
+    ALiterator candidate = areas.end();
+
     // Search thru all available areas
     for(ALiterator  i = areas.begin() ; i != areas.end() ; ++i)
     {
-         cout << "Wanted is: " << wanted << endl;
         Area  *areaWanted = *i;					// Candidate item
-        if(areaWanted->getSize() > wanted)
-        {
-            bool NextAreaIsSmaller = false;
-            if(i != areas.end())
-            {
-                ALiterator nextItem =  ++i;
-                Area  *nextAreaWanted = *nextItem;
-                if((nextAreaWanted->getSize() < wanted))
-                {
-                    NextAreaIsSmaller = true;
-                }
-            }
 
-            if((i == areas.end()) || NextAreaIsSmaller)
-            {
-                ALiterator next = areas.erase(i);	// Remove this element from the freelist
-                if(areaWanted->getSize() > wanted)  		// Larger than needed ?
-                {
-                    Area  *rp = areaWanted->split(wanted);	// Split into two parts (updating sizes)
-                    areas.insert(next, rp);			// Insert remainder before "next" area
-                }
-
-                cout << "Size of area used is: " << areaWanted->getSize()<< endl;
-                return areaWanted;
-            }
-        }
-        else
+        if(candidate == areas.end() || areaWanted->getSize() > wanted)
         {
-            break;
+            candidate = i;
         }
+        break;
+
     }
+
+    if(candidate != areas.end())
+    {
+        Area  *areaWanted = *candidate;
+
+        	// Remove this element from the freelist
+        if(areaWanted->getSize() > wanted)  		// Larger than needed ?
+        {
+            ALiterator next = areas.erase(candidate);
+            Area  *rp = areaWanted->split(wanted);	// Split into two parts (updating sizes)
+            areas.insert(next, rp);			// Insert remainder before "next" area
+            return areaWanted;
+        }
+
+    }
+
     return 0;
 
 }
@@ -149,7 +143,7 @@ bool	BestFit::reclaim()
     require(!areas.empty());		// sanity check
 
     // Sort resource map by area address
-    areas.sort(Area::orderBySizeDescending());	// WARNING: expensive N*log(N) operation !
+    areas.sort(Area::orderByAddress());	// WARNING: expensive N*log(N) operation !
 
     // Search thru all free areas for matches between successive elements
     bool  changed = false;
@@ -157,7 +151,7 @@ bool	BestFit::reclaim()
     Area  *area = *i;					// The current candidate ...
     for(++i ; i != areas.end() ;)
     {
-        Area  *otherArea = *i;				// ... match it with.
+        Area  *otherArea = *i;
         if(otherArea->getBase() == (area->getBase() + area->getSize()))
         {
             // Oke; bp matches ap ... [i.e. bp follows ap]
@@ -175,6 +169,7 @@ bool	BestFit::reclaim()
         }
     }
     ++reclaims;	// update statistics ("reclaims attempted")
+    areas.sort(Area::orderBySizeDescending());	// WARNING: expensive N*log(N) operation !
     return changed;
 }
 

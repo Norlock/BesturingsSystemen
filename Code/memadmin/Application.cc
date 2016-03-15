@@ -308,9 +308,54 @@ void	Application::randomscenario(int aantal, bool vflag)
 }
 
 
-// TODO:
-// Schrijf je eigen scenario routine die zich meer gedraagt als een
-// echte applicatie. En vergeet niet Application.h ook aan te passen.
+// Het playlist scenario
+void	Application::playlistscenario(int aantal, bool vflag)
+{
+	bool old_vflag = this->vflag;
+	this->vflag = vflag;	// verbose mode aan/uit
 
+	oom_teller = 0;			// reset failure counter
+	err_teller = 0;			// reset error counter
+
+	// Door srand hier aan te roepen met een "seed" waarde
+	// krijg je altijd een herhaling van hetzelfde scenario.
+	// Je kan elke seed waarde dan zien als de code voor "een scenario".
+	// Handig voor het testen/meten, maar bedenk wel dat deze scenario's
+	// nooit gelijkwaardig zijn aan het gedrag van een echt systeem.
+	srand(1);   // (zie: man 3 rand)
+
+	// Nu komt het eigenlijke werk:
+	Stopwatch  klok;		// Een stopwatch om de tijd te meten
+	klok.start();			// -----------------------------------
+	vraagGeheugen(1);	//Bool om bij te houden of de playlist wordt afgespeelt
+	for (int  x = 0 ; x < aantal ; ++x) {	// Doe nu tig-keer "iets".
+
+		int  randomSize = randint(1,10);
+
+		if (randomSize >= 8 )//in 3 op 10 wordt er een nieuw nummer afgespeelt
+		{
+		    int randomSize = randint(200,500);//Een nummer is tussen de 300 en 500 groot
+			vraagGeheugen(randomSize);			// maar minstens 1 eenheid
+		}
+		if(randomSize <= 2)//in 3 op 10 wordt er een geheugenstukje vrijgemaakt
+        {
+        vergeetRandom();
+        }
+	}
+	klok.stop();			// -----------------------------------
+	klok.report();			// Vertel de gemeten processor tijd
+	beheerder->report();	// en de statistieken van de geheugenbeheer zelf
+
+	// Evaluatie
+	if ((oom_teller > 0) || (err_teller > 0) ) {	// some errors occured
+	    cout << AC_RED "De allocater faalde " << oom_teller << " keer";
+	    cout << " en maakte " << err_teller << " fouten\n" AA_RESET;
+	} else {										// no problems
+	    cout << AC_GREEN "De allocater faalde " << oom_teller << " keer";
+	    cout << " en maakte " << err_teller << " fouten\n" AA_RESET;
+	}
+
+	this->vflag = old_vflag; // turn on verbose output again
+}
 
 // vim:sw=4:ai:aw:ts=4:

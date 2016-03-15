@@ -17,7 +17,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters=" -fF -b" />
+				<Option parameters=" -fF -bB -nN" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-Wall" />
@@ -58,8 +58,10 @@
 		<Unit filename="assert_error.h" />
 		<Unit filename="asserts.h" />
 		<Unit filename="common.h" />
+		<Unit filename="include/BestFit2.h" />
 		<Unit filename="main.cc" />
 		<Unit filename="main.h" />
+		<Unit filename="src/BestFit2.cpp" />
 		<Unit filename="unix_error.cc" />
 		<Unit filename="unix_error.h" />
 		<Unit filename="where.h" />

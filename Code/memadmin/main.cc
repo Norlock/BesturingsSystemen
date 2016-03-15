@@ -31,7 +31,7 @@ using std::vector;
 // .... voeg hier je eigen variant(en) toe ....
 // bijvoorbeeld:
 #include "BestFit.h"		// pas de naam aan aan jouw versie
-//#include "BestFit2.h"		// pas de naam aan aan jouw versie
+#include "BestFit2.h"		// pas de naam aan aan jouw versie
 //#include "WorstFit.h"		// pas de naam aan aan jouw versie
 //#include "WorstFit2.h"		// pas de naam aan aan jouw versie
 //#include "PowerOfTwo.h"	// pas de naam aan aan jouw versie
@@ -55,7 +55,7 @@ bool		  cflag = false;		///< laat de allocator foute 'free' acties detecteren
 
 // operationele informatie
 vector<Allocator*>	beheerders;		///< de gekozen beheerders
-int			  aantal = 10000;		///< hoe vaak doen we iets met dat geheugen
+int			  aantal = 2;		///< hoe vaak doen we iets met dat geheugen
 bool		  tflag = false;		///< 'true' als we de code willen "testen"
 									///< anders wordt er "gemeten".
 bool		  vflag = false;		///< vertel wat er allemaal gebeurt
@@ -83,7 +83,7 @@ void	tellOptions(const char *progname)
 	// TODO:
 	// Fitter groep
 	cout << "\t-b\t\tuse the best fit allocator (lazy)\n";
-	//cout << "\t-B\t\tuse the best fit allocator (eager)\n";
+	cout << "\t-B\t\tuse the best fit allocator (eager)\n";
 	//cout << "\t-w\t\tuse the worst fit allocator (lazy)\n";
 	//cout << "\t-W\t\tuse the worst fit allocator (eager)\n";
 	// TODO:
@@ -100,7 +100,7 @@ void	tellOptions(const char *progname)
 void	doOptions(int argc, char *argv[])
 {
 	// TODO:
-	char  options[] = "s:a:tvcrfFnNb"; // De opties die we willen herkennen
+	char  options[] = "s:a:tvcrfFnNbB"; // De opties die we willen herkennen
 	// Als je algoritmes toevoegt dan moet je de string hierboven uitbreiden.
 	// (Vergeet niet om de tellOptions functie hiervoor ook aan te passen)
 	// Als je alle algoritmes zou realiseren dan wordt
@@ -168,14 +168,13 @@ void	doOptions(int argc, char *argv[])
 			case 'N': // -n = NextFit2 allocator gevraagd
 				beheerders.push_back( new NextFit2 );
 				break;
-			case 'b': // -b = BestFit allocator gevraagd
+			case 'b': // -b = BestFit allocator gevraagd (lazy)
 				beheerders.push_back( new BestFit );
 				break;
-				// TODO:
-			/*
 			case 'B': // -B = BestFit2 allocator gevraagd
 				beheerders.push_back( new BestFit2 );
 				break;
+				/*
 			case 'w': // -w = WorstFit allocator gevraagd
 				beheerders.push_back( new WorstFit );
 				break;
@@ -250,10 +249,7 @@ int  main(int argc, char *argv[])
 			} else {
 				cout << AC_BLUE "Measuring " << beheerder->getType()
 					 << " doing " << aantal << " calls on " << size << " units\n" AA_RESET;
-				mp->randomscenario(aantal, vflag);
-				// TODO:
-				// .. vervang straks 'randomscenario' door iets toepasselijkers
-				// zodat je ook voorspelbare scenarios kan afhandelen.
+				mp->playlistscenario(aantal, vflag);
 			}
 
 			// Nu alles weer netjes opruimen

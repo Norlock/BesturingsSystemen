@@ -31,7 +31,8 @@ void	NextFit::dump()
 {
 	std::cerr << AC_BLUE << type << "::areas";
 	for (ALiterator  i = areas.begin() ; i != areas.end() ; ++i) {
-		std::cerr << ' ' << **i;
+		   Area  *areaWanted = *i;
+        std::cerr << ' ' << areaWanted->getSize() ;
 	}
 	std::cerr << AA_RESET << std::endl;
 }

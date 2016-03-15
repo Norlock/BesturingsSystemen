@@ -56,6 +56,10 @@ public:
 
 	// TODO:
 	// voeg hier straks je eigen scenario(s) toe
+	/// Voer een het playlist scenario uit
+	/// @param	aantal	hoe vaak wordt er alloc of free gedaan
+	/// @param	vflag	true=vertel wat er allemaal gebeurt (kost wel performance)
+	void playlistscenario(int aantal, bool vflag);
 	// (en in Application.cc)
 
 private:
