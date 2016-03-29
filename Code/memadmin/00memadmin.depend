@@ -177,7 +177,7 @@
 1458039971 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/Allocator.h
 	"Area.h"
 
-1458652179 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/Application.cc
+1459245975 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/Application.cc
 	<cstdlib>
 	"main.h"
 	"Stopwatch.h"
@@ -227,7 +227,7 @@
 	"ansi.h"
 	"Fitter.h"
 
-1458648313 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/main.cc
+1459251266 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/main.cc
 	<vector>
 	<cstdlib>
 	<getopt.h>
@@ -238,6 +238,7 @@
 	"NextFit.h"
 	"NextFit2.h"
 	"BestFit.h"
+	"BestFit2.h"
 	"Application.h"
 
 1458039971 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/RandomFit.h
@@ -289,8 +290,9 @@
 	"ansi.h"
 	<iostream>
 
-1458060017 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/src/BestFit2.cpp
+1459251139 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/src/BestFit2.cpp
 	"BestFit2.h"
 
-1458060017 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/include/BestFit2.h
+1459249358 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/memadmin/include/BestFit2.h
+	"BestFit.h"
 

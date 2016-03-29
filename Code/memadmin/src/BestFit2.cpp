@@ -1,9 +1,4 @@
-/** @file BestFit2.cc
- * De implementatie van BestFit2.
- */
-
 #include "BestFit2.h"
-
 
 // ----- hulpfuncties -----
 
@@ -11,14 +6,14 @@
 void	BestFit2::free(Area *ap)
 {
 	require(ap != 0);
-
+    areas.sort(Area::orderByAddress());	// WARNING: expensive N*log(N) operation !
 	// Find the right place to insert ap, keeping the list sorted by address
 	for (ALiterator  i = areas.begin() ; i != areas.end() ; )
 	{
 		Area  *bp = *i;							// match new ap with existing bp ...
 		if (cflag)
 			check(!ap->overlaps(bp));    		// sanity check
-		// Does older area bp match new free area ap?
+		// Does older area bp matc  h new free area ap?
 		if (bp->getBase() == (ap->getBase() + ap->getSize())) {
 			// Yes, bp matches with ap ...	[ap directly before bp]
 			ALiterator  next = areas.erase(i);	// remove bp from the list
@@ -47,6 +42,5 @@ void	BestFit2::free(Area *ap)
 
 	// Found no match
 	areas.push_back(ap);	// then ap goes at the end
+	areas.sort(Area::orderBySizeDescending());	// WARNING: expensive N*log(N) operation !
 }
-
-// vim:sw=4:ai:aw:ts=4:

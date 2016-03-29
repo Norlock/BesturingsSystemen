@@ -31,7 +31,7 @@ using std::vector;
 // .... voeg hier je eigen variant(en) toe ....
 // bijvoorbeeld:
 #include "BestFit.h"		// pas de naam aan aan jouw versie
-//#include "BestFit2.h"		// pas de naam aan aan jouw versie
+#include "BestFit2.h"		// pas de naam aan aan jouw versie
 //#include "WorstFit.h"		// pas de naam aan aan jouw versie
 //#include "WorstFit2.h"		// pas de naam aan aan jouw versie
 //#include "PowerOfTwo.h"	// pas de naam aan aan jouw versie
@@ -172,7 +172,7 @@ void	doOptions(int argc, char *argv[])
 				beheerders.push_back( new BestFit );
 				break;
 			case 'B': // -B = BestFit2 allocator gevraagd
-				//beheerders.push_back( new BestFit2 );
+				beheerders.push_back( new BestFit2 );
 				break;
 				/*
 			case 'w': // -w = WorstFit allocator gevraagd
