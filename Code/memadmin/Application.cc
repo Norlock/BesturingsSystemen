@@ -339,7 +339,9 @@ void	Application::playlistscenario(int aantal, bool vflag)
 		}
 		if(randomSize <= 2)//in 3 op 10 wordt er een geheugenstukje vrijgemaakt
         {
-        vergeetRandom();
+           if (!objecten.empty()) {			// ... we iets hebben
+			vergeetRandom();				// geef een gebied weer terug
+		}
         }
 	}
 	klok.stop();			// -----------------------------------
