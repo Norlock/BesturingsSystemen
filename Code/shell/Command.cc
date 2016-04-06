@@ -9,6 +9,11 @@
 #include "asserts.h"
 #include "unix_error.h"
 #include "Command.h"
+#include <vector>
+#include <algorithm>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 using namespace std;
 
 
@@ -22,7 +27,6 @@ Command::Command()
 	: append(false)
 {
 }
-
 
 void	Command::addWord(string& word)
 {
@@ -76,7 +80,6 @@ void	Command::execute()
 	// 				searched for using the PATH environment variable.
 	// TODO:	Execute the program passing the arguments array.
 	// Also see: close(2), open(2), getcwd(3), getenv(3), access(2), execv(2), exit(2)
-
 	// TODO: replace the code below with something that really works
 
 #if 1	/* DEBUG code: Set to 0 to turn off the next block of code */
@@ -98,9 +101,83 @@ void	Command::execute()
 		for (vector<string>::iterator  i = words.begin() ; i != words.end() ; ++i)
 			cerr << " " << *i;
 		cerr << endl;
+
+       if(string(words.front()) == "cat") {
+           executeCatCommand();
+        }
+
+
 	}
 #endif	/* end DEBUG code */
 }
+
+
+std::vector<std::string> catParameters;
+
+void	Command::executeCatCommand()
+{
+
+    for (vector<string>::iterator  i = words.begin() ; i != words.end() ; ++i)
+    {
+        //Cat Commando
+        if(i == words.begin())
+        {
+            cerr <<  "First parameter: " << *i <<endl;
+        }
+        //Cat commando parameters
+        else if(std::find(catCommands.begin(), catCommands.end(), *i) != catCommands.end())
+        {
+            catParameters.push_back(*i);
+        }
+        //Cat bestanden
+        else
+        {
+            int f=0,n;
+            char l[80];
+            struct stat s;
+
+            std::string str = string(*i);
+
+            const char * filename =  str.c_str();
+
+            //Kijk of het bestand wel benaderbaar is
+            if(access(filename,F_OK))
+           {
+                 cerr << "File doesn't exist" << endl;
+                 return;
+           }
+            //Kijk of het eeb geldig bestand is
+           if(S_ISREG(s.st_mode)<0)
+           {
+                cerr << "Not a Regular file" << endl;
+                 return;
+           }
+
+            //Open het bestand en scrhijf output naar de console.
+           if(geteuid()==s.st_uid)
+                   if(s.st_mode & S_IRUSR)
+                           f=1;
+           else if(getegid()==s.st_gid)
+                   if(s.st_mode & S_IRGRP)
+                           f=1;
+           else if(s.st_mode & S_IROTH)
+                   f=1;
+           if(!f)
+           {
+               cerr << "Permission denied" << endl;
+                 return;
+           }
+
+           f=open(filename,O_RDONLY);
+           while((n=read(f,l,80))>0)
+                   write(1,l,n);
+
+        }
+    }
+
+
+}
+
 
 
 // vim:ai:aw:ts=4:sw=4:

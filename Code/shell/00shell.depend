@@ -1,0 +1,111 @@
+# depslib dependency file v1.0
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/assert_error.cc
+	<string>
+	<sstream>
+	"assert_error.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/assert_error.h
+	<stdexcept>
+
+1459878375 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Command.cc
+	<iostream>
+	<cstdlib>
+	<unistd.h>
+	<limits.h>
+	<fcntl.h>
+	"asserts.h"
+	"unix_error.h"
+	"Command.h"
+	<vector>
+	<algorithm>
+	<stdio.h>
+	<sys/stat.h>
+	<sys/types.h>
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/asserts.h
+	"where.h"
+	"assert_error.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/where.h
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/unix_error.h
+	<stdexcept>
+	<string>
+	"where.h"
+
+1459871381 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Command.h
+	<string>
+	<vector>
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/main.cc
+	<stdexcept>
+	<iostream>
+	<cstdlib>
+	"ansi.h"
+	"assert_error.h"
+	"unix_error.h"
+	"Shell.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/ansi.h
+	"common.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/common.h
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Shell.h
+	<iostream>
+	"Sequence.h"
+	"Token.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Sequence.h
+	<vector>
+	"Pipeline.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Pipeline.h
+	<vector>
+	"Command.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Token.h
+	<string>
+	<istream>
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Pipeline.cc
+	<iostream>
+	<unistd.h>
+	"asserts.h"
+	"unix_error.h"
+	"Pipeline.h"
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Sequence.cc
+	<iostream>
+	<sys/wait.h>
+	<unistd.h>
+	<fcntl.h>
+	<signal.h>
+	<cstring>
+	"asserts.h"
+	"unix_error.h"
+	"Sequence.h"
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Shell.cc
+	<signal.h>
+	"asserts.h"
+	"syntax_error.h"
+	"Shell.h"
+	"Token.h"
+
+1458039972 /Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/syntax_error.h
+	<stdexcept>
+	<string>
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/Token.cc
+	"asserts.h"
+	"Token.h"
+	<cctype>
+	<cstring>
+
+1458039972 source:/Users/gijs/Desktop/Besturingssystemen/BesturingsSystemen/BesturingsSystemen/Code/shell/unix_error.cc
+	<cstring>
+	<cerrno>
+	<sstream>
+	"unix_error.h"
+

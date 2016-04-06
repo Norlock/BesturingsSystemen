@@ -111,9 +111,8 @@ Area  *BestFit::searcher(int wanted)
         if(candidate == areas.end() || areaWanted->getSize() > wanted)
         {
             candidate = i;
+              break;
         }
-        break;
-
     }
 
     if(candidate != areas.end())

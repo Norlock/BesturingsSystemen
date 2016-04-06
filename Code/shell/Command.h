@@ -22,6 +22,8 @@ class	Command
 		std::string					output;	// name of output file
 		bool						append;	// use output append mode
 
+        std::vector<std::string> catCommands = {"-e", "-n"};
+
 	public:
 
 		/// Initialize
@@ -63,8 +65,11 @@ class	Command
 		void	execute();
 
 		// TODO: Add any other methods you need
+		void	executeCatCommand();
 
 };
+
+
 
 // vim:ai:aw:ts=4:sw=4:
 #endif	/*_Command_h_*/
